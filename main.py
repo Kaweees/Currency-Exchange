@@ -12,26 +12,26 @@ nums = ["1","2","3"]
 countries = {
   "CAD":"Canadian Dollar", "HKD":"Hong Kong dollar",  "ISK":"Icelandic Króna", "PHP":"Philippine peso", "DKK":"Danish Krone", "HUF":"Hungarian Forint", "CZK":"Czech Koruna", "AUD":"Australian Dollar", "RON":"Romanian Leu", "SEK":"Swedish Krona", "IDR":"Indonesian Rupiah", "INR":"Indian Rupee", "BRL":"Brazilian Real", "RUB":"Russian Ruble", "HRK":"Croatian Kuna", "JPY":"Japanese Yen", "THB":"Thai Baht ", "CHF":"Swiss Franc","SGD":"Singapore Dollar","PLN":"Poland złoty","BGN":"Bulgarian Lev", "TRY":"Turkish lira","CNY":"Chinese Yuan","NOK":"Norwegian Krone","NZD":"New Zealand Dollar", "ZAR":"South African Rand","USD":"United States Dollar","MXN":"Mexican Peso","ILS":"Israeli New Shekel", "GBP":"Pound sterling","KRW":"South Korean won","MYR":"Malaysian Ringgit", "EUR": "Euro"}
 basename = countries[base]
-
 while (True):
   print("""\nRate Search Selection Menu: 
 1 - Search by a country's 3 letter acronym
 2 - Show all countries' 3 letter acronym
 3 - Cancel""")
-  option = input("Please select an option. ")[0]
+  option = input("Please select an option.\n")[0]
   if option in nums:
     if int(option) == 1:
       word = input("\nEnter country's 3 letter acronym.\n")
       word = word[0:3].upper()
-      word_name = countries[word]
-      rate = rates[word]
-      if word in rates:
-        extended = str(countries[word])
-        print(f"1 {word_name} ({word}) equals {rate} {basename}s ({base}))")
+      try:
+        word_name = countries[word]
+        rate = rates[word]
+        if word in rates:
+          extended = str(countries[word])
+          print(f"1 {word_name} ({word}) equals {rate} {basename}s ({base}))")
+      except KeyError:
+        print(f"{word} is not valid currency")
     elif int(option) == 2:
       keys = countries.keys()
-      list = []
-      answer = []
       print("\nAcryonym and Full name shown below")
       for i,j in countries.items(): #loop for putting keys and answers in a list
         print(i, j)
