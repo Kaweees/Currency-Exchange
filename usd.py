@@ -29,7 +29,7 @@ while (True):
           rate = rates[word]
           if word in rates:
             extended = str(countries[word])
-            print(f"1 {word_name} ({word}) equals {rate}  {basename}s ({base}))")
+            print(f"1 {word_name} ({word}) equals {rate} {basename}s ({base}))")
         except KeyError:
           print(f"{word} is not valid currency")
       elif int(option) == 2:
