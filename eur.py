@@ -17,25 +17,31 @@ while (True):
 1 - Search by a country's 3 letter acronym
 2 - Show all countries' 3 letter acronym
 3 - Cancel""")
-  option = input("Please select an option.\n")[0]
-  if option in nums:
-    if int(option) == 1:
-      word = input("\nEnter country's 3 letter acronym.\n")
-      word = word[0:3].upper()
-      try:
-        word_name = countries[word]
-        rate = rates[word]
-        if word in rates:
-          extended = str(countries[word])
-          print(f"1 {word_name} ({word}) equals {rate} {basename}s ({base}))")
-      except KeyError:
-        print(f"{word} is not valid currency")
-    elif int(option) == 2:
-      keys = countries.keys()
-      print("\nAcryonym and Full name shown below")
-      for i,j in countries.items(): #loop for putting keys and answers in a list
-        print(i, j)
-    elif int(option) == 3:
-      break
+  option = str(input("Please select an option.\n"))
+  try:
+    option = option[0]
+    if option in nums:
+      if int(option) == 1:
+        word = input("\nEnter country's 3 letter  acronym.\n")
+        word = word[0:3].upper()
+        try:
+          word_name = countries[word]
+          rate = rates[word]
+          if word in rates:
+            extended = str(countries[word])
+            print(f"1 {word_name} ({word}) equals {rate} {basename}s ({base}))")
+        except KeyError:
+          print(f"{word} is not valid currency")
+      elif int(option) == 2:
+        keys = countries.keys()
+        print("\nAcryonym and Full name shown below")
+        for i,j in countries.items(): #loop for putting   keys and answers in a list
+          print(i, j)
+      elif int(option) == 3:
+        break
+      else:
+        print("\nInvalid choice ")
     else:
-      print("\nInvalid choice ")
+      print("Invalid input")
+  except IndexError:
+    print("Invalid input")
