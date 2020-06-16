@@ -7,7 +7,7 @@ r = requests.get(site)
 text = r.text
 rates_dict = json.loads(text) #a dictionary containing the unaltered .json file
 rates = rates_dict["rates"] #a dictionary containing the currency rates 
-base = rates_dict['base']
+base = rates_dict['base_code']
 nums = ["1","2","3"]
 countries = {
   "CAD":"Canadian Dollar", "HKD":"Hong Kong dollar",  "ISK":"Icelandic Króna", "PHP":"Philippine peso", "DKK":"Danish Krone", "HUF":"Hungarian Forint", "CZK":"Czech Koruna", "AUD":"Australian Dollar", "RON":"Romanian Leu", "SEK":"Swedish Krona", "IDR":"Indonesian Rupiah", "INR":"Indian Rupee", "BRL":"Brazilian Real", "RUB":"Russian Ruble", "HRK":"Croatian Kuna", "JPY":"Japanese Yen", "THB":"Thai Baht ", "CHF":"Swiss Franc","SGD":"Singapore Dollar","PLN":"Poland złoty","BGN":"Bulgarian Lev", "TRY":"Turkish lira","CNY":"Chinese Yuan","NOK":"Norwegian Krone","NZD":"New Zealand Dollar", "ZAR":"South African Rand","USD":"United States Dollar","MXN":"Mexican Peso","ILS":"Israeli New Shekel", "GBP":"Pound sterling","KRW":"South Korean won","MYR":"Malaysian Ringgit", "EUR": "Euro"}
